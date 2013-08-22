@@ -22,7 +22,8 @@ Packages are synchronized under `/var/www/repo-arm`
 config file: archrepo2-0.3/archrepo.ini
 
 Will read packages in [testing], [core], [extra-testing], [extra], [multilib-testing], [multilib], [community-testing] and [community].
-pkginfo file is stored under `/var/www/repo-arm`
+
+pkginfo file path: `/var/www/repo-arm/pkginfo.db`
 
 #### repo-arm-server
 
@@ -38,11 +39,9 @@ Will return result:
 
 #### Nginx
 
-A.R.M server url: repo-arm.archlinuxcn.org
-Reverse proxy to 127.0.0.1:3000 (repo-arm-server)
+A.R.M server url: `repo-arm.archlinuxcn.org` reverse proxy to 127.0.0.1:3000 (repo-arm-server)
 
-A.R.M download url: repo-arm-download.archlinuxcn.org
-web root: /var/www/repo-arm/
+A.R.M download url: `repo-arm-download.archlinuxcn.org`, webroot: /var/www/repo-arm/
 
 **TODO** Implement daily-repo functionality.
 
