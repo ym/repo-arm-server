@@ -1,51 +1,43 @@
 ## A.R.M - Arch Rollback Machine
-Server scripts
+Arch Linux Chinese Community A.R.M server app & configurations.
 
-### Usage
+### Configuration
 
-1. Install Node.js
+#### Rsync
 
-2. `git clone https://github.com/phoenixlzx/repo-arm-server && cd repo-arm-server && npm install`
+config file:
 
-3. Sync your packages, and generate pkginfo.db using lilydjwg's [archrepo2](https://github.com/lilydjwg/archrepo2).
+Synchronize packages and make daily copies of package database file.
+Packages are synchronized under `/var/www/repo-arm`
 
-4. Edit `config.js.example` and rename to `config.js`
+#### archrepo2
 
-5. `node app.js`
+config file: archrepo2-0.3/archrepo.ini
 
-This application reads the `pkginfo.db` file, which will include all packages info under a directory.
+Will read packages in [testing], [core], [extra-testing], [extra], [multilib-testing], [multilib], [community-testing] and [community].
+pkginfo file is stored under `/var/www/repo-arm`
 
-#### Configuration
+#### repo-arm-server
 
-##### Nginx 
-Nginx is strongly recommended for handle HTTP requests. `repo-arm.nginx.conf.example` is for reverse proxy to A.R.M server app, and `repo-arm-download.nginx.conf.example` is for static file download service. Edit and use them for your environment.
+config file: config.js
 
-##### config.js
-`pkginfopath`: is where `pkginfo.db` file stores.
+HTTP API Search pattern:
 
-`downloadurl`: URL for downloading packages, We use Nginx to handle the download service directly, so it can be different with A.R.M site url.
+`/search?arch=$pkgarch&pkgname=$pkgname`
 
-### Downgrade
+Will return result:
 
-For downgrade scripts, use the following search pattern:
-`/search?arch=$arch&pkgname=$pkgname`
-where `arch` can be either `i686` or `x86_64`, and `$pkgname` is _exactly_ the package name(packages under `any` will be automatically added to results).
+`pkgrepo|pkgname|pkgarch|pkgver|downloadurl`
 
-Server will return results like:
-`pkgrepo|pkgname|arch|pkgver|downloadurl`. Note: if there are multiple versions, it will display as multiple lines.
+#### Nginx
 
-For example:
-query url: `/search?arch=x86_64&pkgname=linux`
-will get:
-```bash
-core|linux|x86_64|3.9.8-1|http://repo-arm-download.example.com/core/os/x86_64/linux-3.9.8-1-x86_64.pkg.tar.xz
-core|linux|x86_64|3.9.9-1|http://repo-arm-download.example.com/core/os/x86_64/linux-3.9.9-1-x86_64.pkg.tar.xz
-core|linux|x86_64|3.10.1-1|http://repo-arm-download.example.com/core/os/x86_64/linux-3.10.1-1-x86_64.pkg.tar.xz
-```
-Currently if no package found, server will simply return nothing.
+A.R.M server url: repo-arm.archlinuxcn.org
+Reverse proxy to 127.0.0.1:3000 (repo-arm-server)
 
-### TODO
+A.R.M download url: repo-arm-download.archlinuxcn.org
+web root: /var/www/repo-arm/
 
-* Add `repo` field to pkginfo.db so this app will read and return it to downgrade client. [DONE]
+**TODO** Implement daily-repo functionality.
 
-* A basic webpage that could search package directly.
+
+
