@@ -3,6 +3,13 @@ Arch Linux Chinese Community A.R.M server app & configurations.
 
 ### Configuration
 
+Server requirements:
+
+* Linux OS
+* Bash & Rsync
+* Python 3.3, Tornado, [winterpy](https://github.com/lilydjwg/winterpy)
+* Node.js 0.10.13+ with NPM
+
 #### Rsync
 
 config file:
