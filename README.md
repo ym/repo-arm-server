@@ -7,7 +7,7 @@ Server requirements:
 
 * Linux OS
 * Bash & Rsync
-* Python 3.3, Tornado, [winterpy](https://github.com/lilydjwg/winterpy)
+* Python 3.3, distribute
 * Node.js 0.10.13+ with NPM
 
 #### Rsync
@@ -19,7 +19,7 @@ Packages are synchronized under `/var/www/repo-arm`
 
 #### archrepo2
 
-config file: archrepo2-0.3/archrepo.ini
+config file: archrepo2-0.3.1/archrepo.ini
 
 Will read packages in [testing], [core], [extra-testing], [extra], [multilib-testing], [multilib], [community-testing] and [community].
 
