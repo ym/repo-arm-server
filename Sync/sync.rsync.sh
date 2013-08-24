@@ -14,6 +14,8 @@ done
 
 DATEROOT="$DBBACKUP"/$(date +%Y/%m/%d)
 
+rsync -avhkPSH "$UPSTREAM"/pool "$PKGDEST"/
+
 for _r in ${REPOS[@]}; do
   rsync -avhkPSH "$UPSTREAM"/$_r "$PKGDEST"/
 
@@ -25,5 +27,4 @@ for _r in ${REPOS[@]}; do
   done
 done
 
-rsync -avhkPSH "$UPSTREAM"/pool "$PKGDEST"/
 
