@@ -21,7 +21,7 @@ Packages are synchronized under `/var/www/repo-arm`
 
 config file: archrepo2-0.3.1/archrepo.ini
 
-Will read packages in [testing], [core], [extra-testing], [extra], [multilib-testing], [multilib], [community-testing] and [community].
+Will read packages in [testing], [core], [extra], [multilib-testing], [multilib], [community-testing] and [community].
 
 pkginfo file path: `/var/www/repo-arm/pkginfo.db`
 
