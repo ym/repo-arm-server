@@ -35,7 +35,7 @@ HTTP API Search pattern:
 
 Will return result:
 
-`pkgrepo|pkgname|pkgarch|pkgver|downloadurl`
+`pkgrepo|pkgname|pkgarch|pkgver|downloadurl|pkgrelease`
 
 #### Nginx
 
