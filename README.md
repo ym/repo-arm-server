@@ -37,6 +37,10 @@ Will return result:
 
 `pkgrepo|pkgname|pkgarch|pkgver|downloadurl|pkgrelease`
 
+**Note**
+
+If no packages found, simply get nothing. Special symbols like '+' should be encoded to `%2B`.
+
 #### Nginx
 
 config file: NGINX/*.conf
