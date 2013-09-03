@@ -29,17 +29,45 @@ pkginfo file path: `/var/www/repo-arm/pkginfo.db`
 
 config file: repo-arm-server/config.js
 
-HTTP API Search pattern:
+HTTP API:
 
-`/search?arch=$pkgarch&pkgname=$pkgname`
+**Exact package search**
 
-Will return result:
+* Method: POST
+* Path: `/exact`
+* Variables:
+    - `arch` : `i686` || `x86_64`
+    - `pkgname` : _Exact_ package name
 
-`pkgrepo|pkgname|pkgarch|pkgver|downloadurl|pkgrelease`
+Example using cURL:
 
-**Note**
+`curl --data-urlencode "arch=x86_64" --data-urlencode "pkgname=linux" http://arm.example.com/exact`
 
-If no packages found, simply get nothing. Special symbols like '+' should be encoded to `%2B`.
+**Similiar package search**
+
+* Method: POST
+* Path: `/find`
+* Variables:
+    - `arch` : `i686` || `x86_64`
+    - `pkgname` : package name criteria
+
+Example using cURL:
+
+`curl --data-urlencode "arch=x86_64" --data-urlencode "pkgname=linux" http://arm.example.com/find`
+
+**Deprecated GET method**
+
+Pattern: `/search?arch=$arch&pkgname=$pkgname`
+where `arch` can be either `i686` or `x86_64`, and `$pkgname` is _exactly_ the package name(packages under `any` will be automatically added to results).
+
+Note for GET method: Special symbol like `+` should be encoded to `%2B`, or it will be trimmed and wont return the correct result.
+
+**Returning results**
+
+Server will return results like:
+`pkgrepo|pkgname|arch|pkgver|downloadurl|pkgrelease`. 
+
+Note: if there are multiple versions, it will display as multiple lines. If no package found, server will simply return nothing.
 
 #### Nginx
 
