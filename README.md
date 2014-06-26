@@ -69,6 +69,15 @@ Server will return results like:
 
 Note: if there are multiple versions, it will display as multiple lines. If no package found, server will simply return nothing.
 
+**Packages in specific date**
+
+* For users seek for packages repo in a specific day, use the following url pattern as your repo address.
+
+`http://repo-arm.archlinuxcn.org/archive/year/month/day/repo/arch`
+
+e.g., for packages in `[core]` in the day of 2014/04/30, use `http://repo-arm.archlinuxcn.org/archive/2014/04/30/core/$arch`
+
+
 #### Nginx
 
 config file: NGINX/*.conf
@@ -77,7 +86,7 @@ A.R.M server url: `repo-arm.archlinuxcn.org` reverse proxy to 127.0.0.1:3000 (re
 
 A.R.M download url: `repo-arm-download.archlinuxcn.org`, webroot: /var/www/repo-arm/
 
-**TODO** Implement daily-repo functionality.
+~~**TODO** Implement daily-repo functionality.~~
 
 
 
