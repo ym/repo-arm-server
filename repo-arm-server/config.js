@@ -1,11 +1,11 @@
 module.exports = {
-    pkginfopath: "/var/www/repo-arm", // pkginfo.db file path, without the last slash "/".
+    pkginfopath: "/spool/data/archlinuxcn/arm/data/repo-arm", // pkginfo.db file path, without the last slash "/".
     downloadurl: "http://repo-arm-download.archlinuxcn.org/",  // package download url, for returning package download links.
     
     // archive db path
-    archivepath: '/var/www/repo-arm-db',
+    archivepath: '/spool/data/archlinuxcn/arm/data/repo-arm-db',
     // packages path
-    pkgpath: '/var/www/repo-arm/',
+    pkgpath: '/spool/data/archlinuxcn/arm/data/repo-arm/',
 
     // server config
     // bind ip address

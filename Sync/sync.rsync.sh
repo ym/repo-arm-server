@@ -3,8 +3,8 @@ REPOS=(testing core extra community-testing community multilib-testing multilib)
 ARCHS=(i686 x86_64)
 DESTARCHS=(i686 x86_64 any)
 UPSTREAM=rsync://mirror.us.leaseweb.net/archlinux
-PKGDEST=/var/www/repo-arm
-DBBACKUP=/var/www/repo-arm-db
+PKGDEST=/spool/data/archlinuxcn/arm/data/repo-arm
+DBBACKUP=/spool/data/archlinuxcn/arm/data/repo-arm-db
 
 for _r in ${REPOS[@]}; do
   for _a in ${DESTARCHS[@]}; do
