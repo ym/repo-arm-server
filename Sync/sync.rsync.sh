@@ -5,6 +5,7 @@ DESTARCHS=(i686 x86_64 any)
 UPSTREAM=rsync://mirror.us.leaseweb.net/archlinux
 PKGDEST=/spool/data/archlinuxcn/arm/data/repo-arm
 DBBACKUP=/spool/data/archlinuxcn/arm/data/repo-arm-db
+TIMEOUT=120
 
 for _r in ${REPOS[@]}; do
   for _a in ${DESTARCHS[@]}; do
@@ -14,7 +15,7 @@ done
 
 DATEROOT="$DBBACKUP"/$(date +%Y/%m/%d)
 
-rsync -avhkPSH "$UPSTREAM"/pool "$PKGDEST"/
+rsync -avhkPSH --timeout="$TIMEOUT"  "$UPSTREAM"/pool "$PKGDEST"/
 
 for _r in ${REPOS[@]}; do
   rsync -avhkPSH "$UPSTREAM"/$_r "$PKGDEST"/
